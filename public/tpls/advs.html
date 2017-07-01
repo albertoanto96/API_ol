@@ -1,0 +1,42 @@
+<!doctype HTML>
+<head>
+    <meta charset="UTF-8">
+    <title>Anuncios</title>
+</head>
+<body>
+<div>
+    <div layout="row">
+
+        <md-input-container>
+            <md-select ng-model="category" placeholder="Elige la categoria">
+                <md-option ng-value="c.title" ng-click="categoryAdv(c)" ng-repeat="c in classes">{{c.title}}</md-option>
+            </md-select>
+
+            <button class="btn btn-outline-primary" ng-if="boton" ng-click="resetAdv()">Mostrar todas las actividades</button>
+        </md-input-container>
+    </div>
+
+    <div class="grid" >
+        <div class="row">
+            <div ng-repeat="adv in advs" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="txthover">
+                    <img src="../images//{{adv.sport}}.png" height="389" width="400">
+                    <div class="txtcontent" >
+                            <div class="simpletxt">
+                            <h3>{{adv.sport}}   {{adv.category}}    {{adv.round}}</h3>
+                            <p>{{adv.team1}} vs  {{adv.team2}}</p>
+                            <p ng-if="adv.winner!=null ">Ganador: {{adv.winner}}</p>
+                            <p>{{adv.date}}   {{adv.time}}</p>
+                            <p>{{adv.location}} </p>
+                            <p>PG : {{adv.points}}  PP : {{adv.points2}} </p>
+                            <button ng-click="getAdv(adv)">Detalles</button><br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

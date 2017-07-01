@@ -1,0 +1,23 @@
+<md-dialog style="background-color: white">
+    <div ng-controller="mainCtrl"  ng-cloak class="md-inline-form" >
+        <br>
+        <div layout="row" layout-align="center center">
+            <md-input-container id="login">
+                <label style="color: #000000;">Nom</label>
+                <input ng-model="userName">
+            </md-input-container>
+        </div>
+        <br>
+        <div layout="row" layout-align="center center">
+            <md-input-container id="login2">
+                <label style="color: #000000;">Contrasenya</label>
+                <input ng-model="userPass" type="password">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <b class="button" ng-click="doLogin()">Iniciar Sessió</b>
+        </div>
+
+    <br>
+    </div>
+</md-dialog>

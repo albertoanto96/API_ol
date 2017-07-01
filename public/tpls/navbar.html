@@ -1,0 +1,36 @@
+<div ng-controller="userCtrl">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-href="/#!/Perfil" name="Profile" ng-click="x()">
+            Equips y Anuncis
+        </md-nav-item>
+        <md-nav-item md-nav-href="/#!/Anuncios" name="Advs" ng-click="y()">
+            Events
+        </md-nav-item>
+        <md-nav-item  ng-if="profile==='admin'" md-nav-href="/#!/NewAdv" name="NewAdv" ng-click="z()">
+            Nou event
+        </md-nav-item>
+
+        <form class="navbar-form navbar-left" style="padding-top:5px ">
+            <div class="input-group">
+                <input ng-model="search.word" type="text" class="form-control" placeholder="Buscar">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" ng-click="search()" type="submbit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <span flex> </span>
+        <p ng-if="profile == null">Iniciar sessió</p>
+        <p ng-if="profile != null">Benvingut {{profile}}</p>
+        <md-button ng-if="profile == null" ng-click="showAdvanced($event)" class="md-fab md-primary">
+            <md-icon md-svg-src="../img/login.svg" class="fa"></md-icon>
+        </md-button>
+
+        <md-button ng-if="profile != null" class="md-fab md-mini" ng-click="logoutWeb()">
+            <md-icon md-font-icon="fa fa-sign-out"></md-icon>
+        </md-button>
+
+    </md-nav-bar>
+
+</div>

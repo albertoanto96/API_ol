@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Equips</title>
+    <link rel="stylesheet" href="../css/profile.css">
+
+</head>
+<body>
+<div ng-cloak>
+    <h3> Afegir equip</h3>
+    <div layout="row">
+
+
+        <div>
+            <md-input-container class="md-block">
+                <label>Teléfon</label>
+                <input ng-model="telephone">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="md-block">
+                <label>Nom</label>
+                <input ng-model="name">
+            </md-input-container>
+        </div>
+
+        <div>
+            <md-input-container class="md-block">
+                <label>Color</label>
+                <input ng-model="color">
+            </md-input-container>
+        </div>
+
+        <md-input-container>
+            <label>Categoráa</label>
+            <md-select ng-model="category" placeholder="Categoría">
+                <md-optgroup label="Categoria">
+                    <md-option ng-value="t.title" ng-repeat="t in classes">{{t.title}}</md-option>
+                </md-optgroup>
+            </md-select>
+        </md-input-container>
+
+
+    </div>
+
+    <div style="text-align: center">
+        <button type="button" class="btn btn-outline-primary" ng-click="addTeam($event)">Crear equip</button>
+    </div>
+
+    <h3>Crear notícia</h3>
+    <div>
+        <md-input-container class="md-block">
+            <label>Títol de la notícia</label>
+            <input ng-model="title">
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="md-block">
+            <label>Cos de la notícia</label>
+            <input ng-model="body">
+        </md-input-container>
+    </div>
+
+    <div style="text-align: center">
+        <button type="button" class="btn btn-outline-primary" ng-click="addNew($event)">Crear notícia</button>
+    </div>
+    <h3>Afegir punts a un equip</h3>
+
+    <div>
+        <md-input-container>
+            <label>Categoría</label>
+            <md-select ng-model="category" placeholder="Categoria">
+                <md-optgroup label="Categoria">
+                    <md-option ng-value="t.title" ng-repeat="t in classes">{{t.title}}</md-option>
+                </md-optgroup>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Equip 1</label>
+            <md-select ng-model="team1" placeholder="Equipo">
+                <md-optgroup label="Equipo 1 Masculí" ng-if="category==='Masculí'">
+                    <md-option ng-value="e1.name" ng-repeat="e1 in masculine">{{e1.name}}</md-option>
+                </md-optgroup>
+                <md-optgroup label="Equip 1 Femení" ng-if="category==='Femení'">
+                    <md-option ng-value="e3.name" ng-repeat="e3 in femenine">{{e3.name}}
+                    </md-option>
+                </md-optgroup>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>Punts</label>
+            <input ng-model="dpoints">
+        </md-input-container>
+
+        <div style="text-align: center">
+            <button type="button" class="btn btn-outline-primary" ng-click="addPoints($event)">Afegir punts</button>
+        </div>
+
+    </div>
+
+
+    <div>
+        <button type="button" ng-if="viewteam===false" class="btn btn-outline-primary" ng-click="view()">Veure equips</button>
+        <button type="button" ng-if="viewteam==true" class="btn btn-outline-primary" ng-click="unview()">Ocultar equips</button>
+    </div>
+
+    <div ng-if="viewteam==true">
+        <md-list-item class="md-3-line" ng-repeat="mas in masculine">
+            <div class="md-list-item-text" layout="column">
+                <h2>{{ mas.name }}</h2>
+                <h3>{{ mas.telephone }}</h3>
+                <h3>{{ mas.category }}</h3>
+                <h3>{{ mas.color }}</h3>
+                <h3>{{ mas.points }}</h3>
+            </div>
+        </md-list-item>
+
+        <md-list-item class="md-3-line" ng-repeat="fem in femenine">
+            <div class="md-list-item-text" layout="column">
+                <h2>{{ fem.name }}</h2>
+                <h3>{{ fem.telephone }}</h3>
+                <h3>{{ fem.category }}</h3>
+                <h3>{{ fem.color }}</h3>
+                <h3>{{ fem.points }}</h3>
+            </div>
+        </md-list-item>
+    </div>
+</div>
+</body>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo evento</title>
+</head>
+<body>
+<br>
+<div layout="row">
+
+
+    <div flex ng-cloak class="md-block">
+        <div>
+            <md-input-container>
+                <label>Esport</label>
+                <md-select ng-model="sport" placeholder="Esport">
+                    <md-optgroup label="Deportes">
+                        <md-option ng-value="e.title" ng-repeat="e in sports">{{e.nom}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="md-block">
+                <label>Link</label>
+                <input ng-model="link">
+            </md-input-container>
+        </div>
+
+        <div>
+            <md-input-container class="md-block">
+                <label>Punts del guanyador</label>
+                <input ng-model="points">
+            </md-input-container>
+        </div>
+
+        <div>
+            <md-input-container class="md-block">
+                <label>Punts del perdedor</label>
+                <input ng-model="points2">
+            </md-input-container>
+        </div>
+
+        <div>
+            <md-input-container>
+                <label>Ronda</label>
+                <md-select ng-model="round" placeholder="Ronda">
+                    <md-optgroup label="Rondas">
+                        <md-option ng-value="c.title" ng-repeat="c in rounds">{{c.title}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Categoría</label>
+                <md-select ng-model="category" placeholder="Categoría">
+                    <md-optgroup label="Categoria">
+                        <md-option ng-value="t.title" ng-repeat="t in classes">{{t.title}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Equip 1</label>
+                <md-select ng-model="team1" placeholder="Equip 1">
+                    <md-optgroup label="Equip 1 Masculí" ng-if="category==='Masculí'">
+                        <md-option ng-value="e1.name" ng-repeat="e1 in masculine">{{e1.name}}</md-option>
+                    </md-optgroup>
+                    <md-optgroup label="Equip 1 Femení" ng-if="category==='Femení'">
+                        <md-option ng-value="e3.name" ng-repeat="e3 in femenine">{{e3.name}}
+                        </md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Equip 2</label>
+                <md-select ng-model="team2" placeholder="Equip 2">
+                    <md-optgroup label="Equip 2 Masculí" ng-if="category==='Masculí'">
+                        <md-option ng-value="e2.name" ng-repeat="e2 in masculine">{{e2.name}}</md-option>
+                    </md-optgroup>
+                    <md-optgroup label="Equip 2 Femení" ng-if="category==='Femení'">
+                        <md-option ng-value="e4.name" ng-repeat="e4 in femenine">{{e4.name}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+
+        </div>
+
+        <h3>Lloc del event</h3>
+        <div>
+            <input ng-model="searched" places-auto-complete size=80
+                   component-restrictions="{country:'es'}"/>
+            <button type="button" class="btn btn-outline-primary" ng-click="searchLocation()">Anar a la localització</button>
+            </button>
+            <p>{{place}}</p>
+            <div ng-class="reload">
+                <ng-map id="map" zoom="16" center="{{place}}">
+                    <marker position="{{place}}"/>
+                    <control name="overviewMap" opened="true"/>
+                </ng-map>
+            </div>
+        </div>
+        <br><br>
+
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Data del event</label>
+                <div class="col-xs-5">
+                    <input type="text" ng-model="date" class="form-control" id="date" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Hora del event</label>
+                <div class="col-xs-5">
+                    <input type="text" ng-model="time" class="form-control" id="time" />
+                </div>
+            </div>
+
+
+
+        <div style="text-align: center">
+            <button type="button" class="btn btn-outline-primary" ng-click="addEvent($event)">Crear event</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
