@@ -14,8 +14,8 @@
             <md-input-container>
                 <label>Esport</label>
                 <md-select ng-model="sport" placeholder="Esport">
-                    <md-optgroup label="Deportes">
-                        <md-option ng-value="e.title" ng-repeat="e in sports">{{e.nom}}</md-option>
+                    <md-optgroup label="Esports">
+                        <md-option ng-value="e.nom" ng-repeat="e in sports">{{e.nom}}</md-option>
                     </md-optgroup>
                 </md-select>
             </md-input-container>
@@ -86,7 +86,6 @@
             </md-input-container>
 
         </div>
-
         <h3>Lloc del event</h3>
         <div>
             <input ng-model="searched" places-auto-complete size=80

@@ -119,7 +119,7 @@
                     formatLabel: undefined,
                     formatSubmit: undefined,
                     hiddenPrefix: undefined,
-                    hiddenSuffix: '_submit',
+                    hiddenSuffix: '_submit'
                 });
 
                 advSRV.getTeams(function (listTeams) {
@@ -165,10 +165,10 @@
             $scope.delete = function (ev) {
 
                 var confirm = $mdDialog.confirm()
-                    .title('Estás seguro que quieres borrar este evento?')
+                    .title('Vols eliminar el event?')
                     .targetEvent(ev)
-                    .ok('Estoy seguro!')
-                    .cancel('No, dejalo');
+                    .ok('Si!')
+                    .cancel('No');
 
                 $mdDialog.show(confirm).then(function () {
 
@@ -186,10 +186,10 @@
 
                 var adv= $rootScope.adv
                 var confirm = $mdDialog.confirm()
-                    .title('Estás seguro que quieres establecer a '+ adv.team1 +' como ganador?')
+                    .title('Vols establir a '+ adv.team1 +' como guanyadors?')
                     .targetEvent(ev)
-                    .ok('Estoy seguro!')
-                    .cancel('No, dejalo');
+                    .ok('Si!')
+                    .cancel('No');
 
                 $mdDialog.show(confirm).then(function () {
 
@@ -211,10 +211,10 @@
 
                 var adv= $rootScope.adv
                 var confirm = $mdDialog.confirm()
-                    .title('Estás seguro que quieres establecer a '+ adv.team2 +' como ganador?')
+                    .title('Vols establi a '+ adv.team2 +' como guanyadors?')
                     .targetEvent(ev)
-                    .ok('Estoy seguro!')
-                    .cancel('No, dejalo');
+                    .ok('Si!')
+                    .cancel('No');
 
                 $mdDialog.show(confirm).then(function () {
 
