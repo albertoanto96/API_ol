@@ -15,7 +15,7 @@
             $scope.user = localStorageService.get('userID');
             $scope.currentNavItem = 'Anuncios';
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
-            $scope.rounds = [{"title": "vuitens"}, {"title": "cuarts"}, {"title": "semifinal"}, {"title": "final"}];
+            $scope.rounds = [{"title": "vuitens"}, {"title": "cuarts"}, {"title": "semifinal"}, {"title": "final"},{"title": "repesca"}];
             $scope.sports=[{
                 nom:"Futbol-7"}, {
                     nom:"Futbol-Sala"},
