@@ -17,7 +17,8 @@ var events = mongoose.Schema({
     winner:String,
     points:String,
     points2:String,
-    location: String
+    location: String,
+    all:String
 });
 
 var Event = mongoose.model('events', events);

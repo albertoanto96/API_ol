@@ -329,7 +329,8 @@ app.post('/addEvent', function (req, res) {
                 date:req.body.date,
                 points:req.body.points,
                 points2:req.body.points2,
-                time:req.body.time
+                time:req.body.time,
+                all:req.body.all
             });
             a.save().then(function () {
             });
@@ -355,7 +356,7 @@ app.get('/teams',function (req, res) {
 });
 app.post('/teamevents',function (req, res) {
     var team=req.body.equip;
-    Event.find({ $or: [ { team1: team }, { team2: team }, {team1:"tots"}, {team2:"tots"} ] },function (err, event) {
+    Event.find({ $or: [ { team1: team }, { team2: team },{all:"true"} ] },function (err, event) {
         res.send(event);
     })
 });

@@ -81,6 +81,7 @@
             $scope.femenine=[];
             $scope.points=0;
             $scope.points2=0;
+            $scope.radioy="false";
             var geocoder = new google.maps.Geocoder();
 
             var getLocation = function (location) {
@@ -291,6 +292,7 @@
                     time:$scope.time,
                     points:$scope.points,
                     points2:$scope.points2,
+                   all:$scope.radioy
                 };
                     if (data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null||data.points==null||data.points2==null) {
                         $mdDialog.show(
