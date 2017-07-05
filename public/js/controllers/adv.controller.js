@@ -15,6 +15,7 @@
             $scope.user = localStorageService.get('userID');
             $scope.currentNavItem = 'Anuncios';
             $scope.globality=[{"title":"Si"},{"title":"No"}];
+            $scope.globalevent="No"
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
             $scope.rounds = [{"title": "vuitens"}, {"title": "cuarts"}, {"title": "semifinal"}, {"title": "final"},{"title": "repesca"}];
             $scope.sports=[{nom:"Futbol-7"}, {nom:"Futbol-Sala"}, {nom:"Waterpolo"},
