@@ -311,7 +311,7 @@
                     points2:$scope.points2,
                    all:$scope.radioy
                 };
-                if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='No')) {
+                if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='False')) {
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
@@ -319,7 +319,7 @@
                             .ok('Ok!')
                     );
                 }
-                else if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='Si')) {
+                else if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='True')) {
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
