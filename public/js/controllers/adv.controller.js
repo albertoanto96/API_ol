@@ -4,9 +4,9 @@
     app.controller('advCtrl', ['advSRV', '$scope', '$location', '$rootScope', '$mdDialog', '$mdToast', 'Upload', 'localStorageService',
         function (advSRV, $scope, $location, $rootScope, $mdDialog, $mdToast, Upload, localStorageService, NgMap) {
 
-
+            $scope.profil = null;
             $scope.place="Begas, España";
-            $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAU-CXgmB-8XZnXFwyq3gOdpKINaSRxW3k?libraries=places"
+            $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAU-CXgmB-8XZnXFwyq3gOdpKINaSRxW3k?libraries=places";
             $scope.category = "";
             $scope.totaladv = [];
             $scope.reladv = [];
@@ -14,8 +14,6 @@
             $scope.advs = [];
             $scope.user = localStorageService.get('userID');
             $scope.currentNavItem = 'Anuncios';
-            $scope.globality=[{"title":"Si"},{"title":"No"}];
-            $scope.globalevent="No"
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
             $scope.rounds = [{"title": "vuitens"}, {"title": "cuarts"}, {"title": "semifinal"}, {"title": "final"},{"title": "repesca"}];
             $scope.sports=[{nom:"Futbol-7"}, {nom:"Futbol-Sala"}, {nom:"Waterpolo"},
@@ -103,7 +101,7 @@
             }
 
             angular.element(document).ready(function () {
-
+                $scope.profil=localStorageService.get('userName');
                 $('#date').pickadate({
                     format: 'd/m/yyyy',
                     formatSubmit: 'd/m/yyyy',
@@ -249,6 +247,7 @@
                 return $scope.category
             }
             $scope.dateAdv = function () {
+
 
                 $scope.advs = $scope.totaladv
 

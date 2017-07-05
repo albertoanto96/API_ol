@@ -1,9 +1,9 @@
 <div ng-controller="userCtrl">
     <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-        <md-nav-item md-nav-href="/#!/Perfil" name="Profile" ng-click="x()">
+        <md-nav-item  ng-if="profile==='admin'" md-nav-href="/#!/Perfil" name="Profile" ng-click="x()">
             Equips y Anuncis
         </md-nav-item>
-        <md-nav-item md-nav-href="/#!/Anuncios" name="Advs" ng-click="y()">
+        <md-nav-item  ng-if="profile==='admin'" md-nav-href="/#!/Anuncios" name="Advs" ng-click="y()">
             Events
         </md-nav-item>
         <md-nav-item  ng-if="profile==='admin'" md-nav-href="/#!/NewAdv" name="NewAdv" ng-click="z()">

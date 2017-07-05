@@ -9,7 +9,8 @@
         }
     </style>
 </head>
-<body>
+<body  >
+<div ng-if="profil==='admin'">
 <div layout="row" layout-sm="column">
     <div flex="58" >
         <img src="../images//{{adv.sport}}.png" style="width:300px; height:200px; padding-left: 50px; padding-top: 9px;">
@@ -29,7 +30,7 @@
                             </md-card-title-text>
                         </md-card-title>
                         <md-card-content>
-                            <span class="md-subhead">Deporte: {{adv.sport}}</span>
+                            <span class="md-subhead">Esport: {{adv.sport}}</span>
                         </md-card-content>
                         <md-card-content>
                             <span class="md-subhead">Categoria: {{adv.category}}</span>
@@ -38,26 +39,26 @@
                             <span class="md-subhead">Ronda: {{adv.round}}</span>
                         </md-card-content>
                         <md-card-content>
-                            <span class="md-subhead">Puntos ganador : {{adv.points}}  Puntos perdedor : {{adv.points2}}</span>
+                            <span class="md-subhead">Punts guanyador : {{adv.points}}  Puntos perdedor : {{adv.points2}}</span>
                         </md-card-content>
                         <md-card-content ng-if="adv.team1!=null">
-                            <span class="md-subhead">Equipo 1: {{adv.team1}}</span>
+                            <span class="md-subhead">Equip 1: {{adv.team1}}</span>
                             <md-button ng-if="adv.winner==null" class="md-icon-button md-primary" aria-label="Delete" ng-click="win1($event)">
                                 <md-icon md-svg-src="../img/win.svg"></md-icon>
                             </md-button>
                         </md-card-content>
 
                         <md-card-content ng-if="adv.team2!=null">
-                            <span class="md-subhead">Equipo 2: {{adv.team2}}</span>
+                            <span class="md-subhead">Equip 2: {{adv.team2}}</span>
                             <md-button  ng-if="adv.winner==null"class="md-icon-button md-primary" aria-label="Delete" ng-click="win2($event)">
                                 <md-icon md-svg-src="../img/win.svg"></md-icon>
                             </md-button>
                         </md-card-content>
                         <md-card-content ng-if="adv.winner!=null">
-                            <span   class="md-subhead">Ganador: {{adv.winner}}</span>
+                            <span   class="md-subhead">Guanyador: {{adv.winner}}</span>
                         </md-card-content>
                         <md-card-content>
-                            <span class="md-subhead">Fecha y hora: {{adv.date}} a las {{adv.time}}</span>
+                            <span class="md-subhead">Data i hora: {{adv.date}} a las {{adv.time}}</span>
                         </md-card-content>
                         <md-card-content>
                             <span class="md-subhead">Link: {{adv.link}}</span>
@@ -70,7 +71,7 @@
     </div>
 </div>
 <br><br>
-<h3>LocalizaciÃ³n del evento</h3>
+<h3>Localització del event</h3>
 
 <p>{{adv.location}}</p>
 <ng-map zoom="16" center="{{location}}">
@@ -78,4 +79,5 @@
     <!--<shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />-->
     <control name="overviewMap" opened="true" />
 </ng-map>
+</div>
 </body>

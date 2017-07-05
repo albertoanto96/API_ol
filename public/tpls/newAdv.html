@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nuevo evento</title>
+    <title>Nou event</title>
 </head>
-<body>
+<body  >
 <br>
 <div layout="row">
 
 
     <div flex ng-cloak class="md-block">
-        <div>
+        <div ng-if="profil==='admin'">
             <md-input-container>
                 <label>Esport</label>
                 <md-select ng-model="sport" placeholder="Esport">
@@ -20,29 +20,29 @@
                 </md-select>
             </md-input-container>
         </div>
-        <div>
+        <div ng-if="profil==='admin'">
             <md-input-container class="md-block">
                 <label>Link</label>
                 <input ng-model="link">
             </md-input-container>
         </div>
 
-        <div>
+        <div ng-if="profil==='admin'">
             <md-input-container class="md-block">
                 <label>Punts del guanyador</label>
                 <input ng-model="points">
             </md-input-container>
         </div>
 
-        <div>
+        <div ng-if="profil==='admin'">
             <md-input-container class="md-block">
                 <label>Punts del perdedor</label>
                 <input ng-model="points2">
             </md-input-container>
         </div>
 
-        <div>
-            <md-input-container>
+        <div ng-if="profil==='admin'">
+            <md-input-container ng-if="radioy==='false'">
                 <label>Ronda</label>
                 <md-select ng-model="round" placeholder="Ronda">
                     <md-optgroup label="Rondas">
@@ -50,16 +50,8 @@
                     </md-optgroup>
                 </md-select>
             </md-input-container>
-            <md-input-container>
-                <label>Global</label>
-                <md-select ng-model="globalevent" placeholder="Global">
-                    <md-optgroup label="Global">
-                        <md-option ng-value="g.title" ng-repeat="g in globality">{{g.title}}</md-option>
-                    </md-optgroup>
-                </md-select>
-            </md-input-container>
 
-            <md-input-container>
+            <md-input-container ng-if="radioy==='false'">
                 <label>Categoría</label>
                 <md-select ng-model="category" placeholder="Categoría">
                     <md-optgroup label="Categoria">
@@ -68,7 +60,7 @@
                 </md-select>
             </md-input-container>
 
-            <md-input-container>
+            <md-input-container ng-if="radioy==='false'">
                 <label>Equip 1</label>
                 <md-select ng-model="team1" placeholder="Equip 1">
                     <md-optgroup label="Equip 1 Masculí" ng-if="category==='Masculí'">
@@ -81,7 +73,7 @@
                 </md-select>
             </md-input-container>
 
-            <md-input-container>
+            <md-input-container ng-if="radioy==='false'">
                 <label>Equip 2</label>
                 <md-select ng-model="team2" placeholder="Equip 2">
                     <md-optgroup label="Equip 2 Masculí" ng-if="category==='Masculí'">
@@ -104,8 +96,8 @@
             </label>
         </div>
         </div>
-        <h3>Lloc del event</h3>
-        <div>
+        <h3 ng-if="profil==='admin'">Lloc del event</h3>
+        <div ng-if="profil==='admin'">
             <input ng-model="searched" places-auto-complete size=80
                    component-restrictions="{country:'es'}"/>
             <button type="button" class="btn btn-outline-primary" ng-click="searchLocation()">Anar a la localització</button>
@@ -122,14 +114,14 @@
 
 
             <div class="form-group">
-                <label class="col-xs-3 control-label">Data del event</label>
+                <label class="col-xs-3 control-label" ng-if="profil==='admin'">Data del event</label>
                 <div class="col-xs-5">
                     <input type="text" ng-model="date" class="form-control" id="date" />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-xs-3 control-label">Hora del event</label>
+                <label class="col-xs-3 control-label" ng-if="profil==='admin'">Hora del event</label>
                 <div class="col-xs-5">
                     <input type="text" ng-model="time" class="form-control" id="time" />
                 </div>
@@ -137,7 +129,7 @@
 
 
 
-        <div style="text-align: center">
+        <div style="text-align: center" ng-if="profil==='admin'">
             <button type="button" class="btn btn-outline-primary" ng-click="addEvent($event)">Crear event</button>
         </div>
     </div>

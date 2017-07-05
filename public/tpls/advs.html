@@ -1,19 +1,20 @@
 <!doctype HTML>
 <head>
     <meta charset="UTF-8">
-    <title>Anuncios</title>
+    <title>Events</title>
 </head>
-<body>
+<body >
+
 <div>
     <div layout="row">
-        <div class="form-group">
-            <label class="col-xs-3 control-label">Data del event</label>
+        <div class="form-group" >
+            <label class="col-xs-3 control-label" ng-if="profil==='admin'">Data del event</label>
             <div class="col-xs-5">
-                <input type="text" ng-model="date2" class="form-control" id="date2" />
+                <input type="text" ng-model="date2" class="form-control" id="date2" ng-change="dateAdv()" />
             </div>
         </div>
 
-        <md-input-container>
+        <md-input-container ng-if="profil==='admin'">
             <md-select ng-model="category" placeholder="Elige la categoria">
                 <md-option ng-value="c.title" ng-click="categoryAdv(c)" ng-repeat="c in classes">{{c.title}}</md-option>
             </md-select>
@@ -21,12 +22,12 @@
             <button class="btn btn-outline-primary" ng-if="boton" ng-click="resetAdv()">Mostrar tots els events</button>
         </md-input-container>
     </div>
-
+    <div ng-if="profil==='admin'">
     <div class="grid" >
         <div class="row">
             <div ng-repeat="adv in advs" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="txthover">
-                    <img src="../images//{{adv.sport}}.png" height="389" width="400">
+                    <img src="../img/advs/{{adv.sport}}.png" height="389" width="400">
                     <div class="txtcontent" >
                         <div class="simpletxt">
                             <h3>{{adv.sport}}   {{adv.category}}    {{adv.round}}</h3>
@@ -45,5 +46,5 @@
         </div>
     </div>
 </div>
-
+</div>
 </body>
