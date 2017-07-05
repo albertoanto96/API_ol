@@ -18,9 +18,9 @@
             <md-select ng-model="category" placeholder="Elige la categoria">
                 <md-option ng-value="c.title" ng-click="categoryAdv(c)" ng-repeat="c in classes">{{c.title}}</md-option>
             </md-select>
-
-            <button class="btn btn-outline-primary" ng-if="boton" ng-click="resetAdv()">Mostrar tots els events</button>
         </md-input-container>
+
+        <button style="height: 40px" class="btn btn-outline-primary" ng-if="boton&&profil==='admin'" ng-click="resetAdv()">Mostrar tots els events</button>
     </div>
     <div ng-if="profil==='admin'">
     <div class="grid" >

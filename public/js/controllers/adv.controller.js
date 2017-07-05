@@ -274,6 +274,7 @@
 
                     }
                 }
+                $scope.boton=true;
                 $scope.advs = catadv;
                 return $scope.category
             }
