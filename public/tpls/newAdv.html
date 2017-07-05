@@ -50,6 +50,14 @@
                     </md-optgroup>
                 </md-select>
             </md-input-container>
+            <md-input-container>
+                <label>Global</label>
+                <md-select ng-model="globalevent" placeholder="Global">
+                    <md-optgroup label="Global">
+                        <md-option ng-value="g.title" ng-repeat="g in globality">{{g.title}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
 
             <md-input-container>
                 <label>Categoría</label>

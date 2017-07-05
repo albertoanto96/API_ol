@@ -5,7 +5,7 @@
         function (advSRV, $scope, $location, $rootScope, $mdDialog, $mdToast, Upload, localStorageService, NgMap) {
 
 
-            $scope.place="Begas, España"
+            $scope.place="Begas, España";
             $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAU-CXgmB-8XZnXFwyq3gOdpKINaSRxW3k?libraries=places"
             $scope.category = "";
             $scope.totaladv = [];
@@ -14,69 +14,65 @@
             $scope.advs = [];
             $scope.user = localStorageService.get('userID');
             $scope.currentNavItem = 'Anuncios';
+            $scope.globality=[{"title":"Si"},{"title":"No"}];
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
             $scope.rounds = [{"title": "vuitens"}, {"title": "cuarts"}, {"title": "semifinal"}, {"title": "final"},{"title": "repesca"}];
-            $scope.sports=[{
-                nom:"Futbol-7"}, {
-                    nom:"Futbol-Sala"},
-                {
-                    nom:"Waterpolo"
-                },
-                {
-                    nom:"Petanca"
-                },
-                {
-                    nom:"Bàsquet"
-                },
-                {
-                    nom:"Ping-Pong"
-                },
-                {
-                    nom:"Tenis"
-                },
-                {
-                    nom:"Marató"
-                },
-                {
-                    nom:"Dards"
-                },
-                {
-                    nom:"Natació"
-                },
-                {
-                    nom:"Minigolf"
-                },
-                {
-                    nom:"Dominó"
-                },
-                {
-                    nom:"Billar"
-                },
-                {
-                    nom:"Futbolí"
-                },
-                {
-                    nom:"Handbol"
-                },
-                {
-                    nom:"Ciclisme"
-                },
-                {
-                    nom:"Volei-Pista"
-                },
-                {
-                    nom:"Volei-Platja"
-                },
-                {
-                    nom:"Pàdel"
-                },
-                {
-                    nom:"Frontó"
-                },
-                {
-                    nom:"Escacs"
-                }
-            ];
+            $scope.sports=[{nom:"Futbol-7"}, {nom:"Futbol-Sala"}, {nom:"Waterpolo"},
+                    {
+                        nom:"Petanca"
+                    },
+                    {
+                        nom:"Bàsquet"
+                    },
+                    {
+                        nom:"Ping-Pong"
+                    },
+                    {
+                        nom:"Tenis"
+                    },
+                    {
+                        nom:"Marató"
+                    },
+                    {
+                        nom:"Dards"
+                    },
+                    {
+                        nom:"Natació"
+                    },
+                    {
+                        nom:"Minigolf"
+                    },
+                    {
+                        nom:"Dominó"
+                    },
+                    {
+                        nom:"Billar"
+                    },
+                    {
+                        nom:"Futbolí"
+                    },
+                    {
+                        nom:"Handbol"
+                    },
+                    {
+                        nom:"Ciclisme"
+                    },
+                    {
+                        nom:"Volei-Pista"
+                    },
+                    {
+                        nom:"Volei-Platja"
+                    },
+                    {
+                        nom:"Pàdel"
+                    },
+                    {
+                        nom:"Frontó"
+                    },
+                    {
+                        nom:"Escacs"
+                    }
+                ];
             $scope.masculine=[];
             $scope.femenine=[];
             $scope.points=0;
@@ -112,7 +108,11 @@
                     formatSubmit: 'd/m/yyyy',
                     hiddenName: true
                 });
-
+                $('#date2').pickadate({
+                    format: 'd/m/yyyy',
+                    formatSubmit: 'd/m/yyyy',
+                    hiddenName: true
+                });
                 $('#time').pickatime({
 
                     format: 'H:i ',
@@ -244,22 +244,38 @@
                 if(c!=undefined) {
                     $scope.category = c.title
                 }
+                $scope.dateAdv()
+                return $scope.category
+            }
+            $scope.dateAdv = function () {
+
                 $scope.advs = $scope.totaladv
+
                 var catadv = [];
                 var i = 0;
 
+                for (i; i < $scope.advs.length; i++) {
+
+                    if ($scope.advs[i].category == $scope.category) {
+                        catadv.push($scope.advs[i])
+                    }
+                }
+
+                i = 0;
+                $scope.advs = catadv;
+
+                if($scope.date2!=undefined) {
+                    catadv=[]
                     for (i; i < $scope.advs.length; i++) {
 
-                        if ($scope.category == "Todo") {
+                        if ($scope.advs[i].date == $scope.date2) {
+                            catadv.push($scope.advs[i])
+                        }
 
-                            catadv.push($scope.advs[i])
-                        }
-                        else if (($scope.advs[i].category == $scope.category) || ($scope.advs[i].category == "Todo")) {
-                            catadv.push($scope.advs[i])
-                        }
                     }
-                    $scope.advs = catadv;
-                    return $scope.category
+                }
+                $scope.advs = catadv;
+                return $scope.category
             }
 
 
@@ -294,67 +310,76 @@
                     points2:$scope.points2,
                    all:$scope.radioy
                 };
-                    if (data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null||data.points==null||data.points2==null) {
-                        $mdDialog.show(
-                            $mdDialog.alert()
-                                .clickOutsideToClose(true)
-                                .title('Hay que rellenar todos los campos!')
-                                .ok('Entendido!')
-                        );
-                    }
-                    else if(data.team1===data.team2){
-                        $mdDialog.show(
-                            $mdDialog.alert()
-                                .clickOutsideToClose(true)
-                                .title('Los equipos no pueden ser el mismo!')
-                                .ok('Entendido!')
-                        );
-                    }
-                    else {
-                        var confirm = $mdDialog.confirm()
-                            .title('Estás seguro que quieres publicar este anuncio?')
-                            .targetEvent(ev)
-                            .ok('Estoy seguro!')
-                            .cancel('Mejor en otro momento');
+                if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='No')) {
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                            .clickOutsideToClose(true)
+                            .title('Faltan camps per omplir!')
+                            .ok('Ok!')
+                    );
+                }
+                else if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='Si')) {
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                            .clickOutsideToClose(true)
+                            .title('Faltan camps per omplir!')
+                            .ok('Ok!')
+                    );
+                }
+                else if((data.team1===data.team2)&&(data.all==='No')){
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                            .clickOutsideToClose(true)
+                            .title('Els equips no poden ser els mateixos!')
+                            .ok('Ok!')
+                    );
+                }
+                else {
+                    var confirm = $mdDialog.confirm()
+                        .title('Esàs segur de que vols crear el event?')
+                        .targetEvent(ev)
+                        .ok('Ok!')
+                        .cancel('No');
 
-                        $mdDialog.show(confirm).then(function () {
-                            advSRV.addEvent(data, function (response) {
-                                if (response == "500") {
-                                    $mdDialog.show(
-                                        $mdDialog.alert()
-                                            .clickOutsideToClose(true)
-                                            .title('Ya existe un evento con ese título')
-                                            .ok('Entendido!')
-                                    );
-                                } else {
+                    $mdDialog.show(confirm).then(function () {
+                        advSRV.addEvent(data, function (response) {
+                            if (response == "500") {
+                                $mdDialog.show(
+                                    $mdDialog.alert()
+                                        .clickOutsideToClose(true)
+                                        .title('Ja exitseix un event igual')
+                                        .ok('Ok!')
+                                );
+                            } else {
 
-                                    $mdDialog.show(
-                                        $mdDialog.alert()
-                                            .clickOutsideToClose(true)
-                                            .title('Evento creado correctamente')
-                                            .ok('Entendido!')
-                                    );
-                                    $location.path("/Anuncios");
-                                }
-                            })
-                        });
-                    }
+                                $mdDialog.show(
+                                    $mdDialog.alert()
+                                        .clickOutsideToClose(true)
+                                        .title('Event creat correctament')
+                                        .ok('Ok!')
+                                );
+                                $location.path("/Anuncios");
+                            }
+                        })
+                    });
+                }
+
 
             };
 
             $scope.cancelAdv = function (ev) {
                 var confirm = $mdDialog.confirm()
-                    .title('Estás seguro que quieres descartar este anuncio?')
+                    .title('Vols cancelar aquest event?')
                     .targetEvent(ev)
-                    .ok('Estoy seguro!')
-                    .cancel('No, quiero seguir');
+                    .ok('Si!')
+                    .cancel('No');
 
                 $mdDialog.show(confirm).then(function () {
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
-                            .title('Anuncio descartado.')
-                            .ok('Entendido!')
+                            .title('Event cancelat.')
+                            .ok('Ok!')
                     );
                     $scope.currentNavItem = 'Anuncios';
                     $location.path("/Anuncios");

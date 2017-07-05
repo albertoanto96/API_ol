@@ -14,7 +14,7 @@
     <div flex="58" >
         <img src="../images//{{adv.sport}}.png" style="width:300px; height:200px; padding-left: 50px; padding-top: 9px;">
     </div>
-<div ng-cloak>
+    <div ng-cloak>
         <md-content style="background: transparent">
             <div flex="120" layout="column">
                 <div flex="70" layout="column">
@@ -40,18 +40,18 @@
                         <md-card-content>
                             <span class="md-subhead">Puntos ganador : {{adv.points}}  Puntos perdedor : {{adv.points2}}</span>
                         </md-card-content>
-                        <md-card-content>
+                        <md-card-content ng-if="adv.team1!=null">
                             <span class="md-subhead">Equipo 1: {{adv.team1}}</span>
                             <md-button ng-if="adv.winner==null" class="md-icon-button md-primary" aria-label="Delete" ng-click="win1($event)">
-                            <md-icon md-svg-src="../img/win.svg"></md-icon>
-                        </md-button>
+                                <md-icon md-svg-src="../img/win.svg"></md-icon>
+                            </md-button>
                         </md-card-content>
 
-                        <md-card-content>
+                        <md-card-content ng-if="adv.team2!=null">
                             <span class="md-subhead">Equipo 2: {{adv.team2}}</span>
                             <md-button  ng-if="adv.winner==null"class="md-icon-button md-primary" aria-label="Delete" ng-click="win2($event)">
-                            <md-icon md-svg-src="../img/win.svg"></md-icon>
-                        </md-button>
+                                <md-icon md-svg-src="../img/win.svg"></md-icon>
+                            </md-button>
                         </md-card-content>
                         <md-card-content ng-if="adv.winner!=null">
                             <span   class="md-subhead">Ganador: {{adv.winner}}</span>
@@ -70,12 +70,12 @@
     </div>
 </div>
 <br><br>
-<h3>Localización del evento</h3>
+<h3>LocalizaciÃ³n del evento</h3>
 
-    <p>{{adv.location}}</p>
-    <ng-map zoom="16" center="{{location}}">
-        <marker position="{{location}}"/>
-        <!--<shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />-->
-        <control name="overviewMap" opened="true" />
-    </ng-map>
+<p>{{adv.location}}</p>
+<ng-map zoom="16" center="{{location}}">
+    <marker position="{{location}}"/>
+    <!--<shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />-->
+    <control name="overviewMap" opened="true" />
+</ng-map>
 </body>

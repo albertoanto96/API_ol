@@ -6,13 +6,19 @@
 <body>
 <div>
     <div layout="row">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Data del event</label>
+            <div class="col-xs-5">
+                <input type="text" ng-model="date2" class="form-control" id="date2" />
+            </div>
+        </div>
 
         <md-input-container>
             <md-select ng-model="category" placeholder="Elige la categoria">
                 <md-option ng-value="c.title" ng-click="categoryAdv(c)" ng-repeat="c in classes">{{c.title}}</md-option>
             </md-select>
 
-            <button class="btn btn-outline-primary" ng-if="boton" ng-click="resetAdv()">Mostrar todas las actividades</button>
+            <button class="btn btn-outline-primary" ng-if="boton" ng-click="resetAdv()">Mostrar tots els events</button>
         </md-input-container>
     </div>
 
@@ -22,14 +28,14 @@
                 <div class="txthover">
                     <img src="../images//{{adv.sport}}.png" height="389" width="400">
                     <div class="txtcontent" >
-                            <div class="simpletxt">
+                        <div class="simpletxt">
                             <h3>{{adv.sport}}   {{adv.category}}    {{adv.round}}</h3>
-                            <p>{{adv.team1}} vs  {{adv.team2}}</p>
-                            <p ng-if="adv.winner!=null ">Ganador: {{adv.winner}}</p>
+                            <p ng-if="adv.team1!=null">{{adv.team1}} vs  {{adv.team2}}</p>
+                            <p ng-if="adv.winner!=null ">Guanyador: {{adv.winner}}</p>
                             <p>{{adv.date}}   {{adv.time}}</p>
                             <p>{{adv.location}} </p>
                             <p>PG : {{adv.points}}  PP : {{adv.points2}} </p>
-                            <button ng-click="getAdv(adv)">Detalles</button><br>
+                            <button ng-click="getAdv(adv)">Detall</button><br>
                         </div>
                     </div>
                 </div>
@@ -39,4 +45,5 @@
         </div>
     </div>
 </div>
+
 </body>
