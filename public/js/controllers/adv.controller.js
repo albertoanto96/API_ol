@@ -319,7 +319,7 @@
                             .ok('Ok!')
                     );
                 }
-                else if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='true')) {
+                else if ((data.sport == null || data.link == null || data.location == null|| data.date == null|| data.time == null)&&(data.all==='true')) {
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
