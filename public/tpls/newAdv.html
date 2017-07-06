@@ -53,9 +53,9 @@
 
             <md-input-container ng-if="radioy==='false'">
                 <label>Categoría</label>
-                <md-select ng-model="category" placeholder="Categoría">
+                <md-select ng-model="catego" placeholder="Categoría">
                     <md-optgroup label="Categoria">
-                        <md-option ng-value="t.title" ng-repeat="t in classes">{{t.title}}</md-option>
+                        <md-option ng-value="t.title" ng-repeat="t in classes" ng-click="change(t.title)">{{t.title}}</md-option>
                     </md-optgroup>
                 </md-select>
             </md-input-container>

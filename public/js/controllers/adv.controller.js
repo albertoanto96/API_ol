@@ -1,13 +1,14 @@
 (function () {
     'use strict';
     var app = angular.module('mainApp');
-    app.controller('advCtrl', ['advSRV', '$scope', '$location', '$rootScope', '$mdDialog', '$mdToast', 'Upload', 'localStorageService',
-        function (advSRV, $scope, $location, $rootScope, $mdDialog, $mdToast, Upload, localStorageService, NgMap) {
+    app.controller('advCtrl', ['advSRV', '$scope', '$location', '$rootScope', '$mdDialog', '$mdToast', 'localStorageService',
+        function (advSRV, $scope, $location, $rootScope, $mdDialog, $mdToast, localStorageService, NgMap) {
 
             $scope.profil = null;
             $scope.place="Begas, España";
             $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAU-CXgmB-8XZnXFwyq3gOdpKINaSRxW3k?libraries=places";
             $scope.category = "";
+            $scope.catego="";
             $scope.totaladv = [];
             $scope.reladv = [];
             $scope.boton = false;
@@ -80,6 +81,7 @@
             var geocoder = new google.maps.Geocoder();
 
             var getLocation = function (location) {
+
                 var address = location;
                 geocoder.geocode({'address': address}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
@@ -123,7 +125,6 @@
                 });
 
                 advSRV.getTeams(function (listTeams) {
-
                     for (var i = 0; i < listTeams.length; i++) {
 
                         if(listTeams[i].category==="Masculí"){
@@ -287,13 +288,15 @@
 
             };
             $scope.searchLocation=function () {
-
+                console.log($scope.catego)
                 if(($scope.searched!=undefined)) {
                     getLocation($scope.searched)
                     $scope.place = $scope.searched
                 }
             }
-
+            $scope.change=function (cat) {
+            $scope.category=cat;
+            };
             $scope.addEvent = function (ev) {
 
                var data = {
