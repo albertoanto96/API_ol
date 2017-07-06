@@ -253,35 +253,55 @@
                 return $scope.category.cat
             }
             $scope.dateAdv = function () {
-
-
                 $scope.advs = $scope.totaladv
-
                 var catadv = [];
                 var i = 0;
 
-                for (i; i < $scope.advs.length; i++) {
-
-                    if ($scope.advs[i].category == $scope.category.cat) {
-                        catadv.push($scope.advs[i])
-                    }
-                }
-
-                i = 0;
-                $scope.advs = catadv;
-
-                if($scope.date2!=undefined) {
-                    catadv=[]
+                if(typeof  $scope.date2!=='undefined' && typeof $scope.category.cat==='undefined') {
+                    console.log("entra1")
+                    catadv=[];
                     for (i; i < $scope.advs.length; i++) {
 
-                        if ($scope.advs[i].date == $scope.date2) {
+                        if ($scope.advs[i].date === $scope.date2 ) {
+
                             catadv.push($scope.advs[i])
                         }
 
                     }
+                    $scope.boton=true;
+                    $scope.advs = catadv;
                 }
-                $scope.boton=true;
-                $scope.advs = catadv;
+                if(typeof  $scope.date2==='undefined' && typeof $scope.category.cat!=='undefined') {
+                    console.log("entra2")
+                    catadv=[];
+                    for (i; i < $scope.advs.length; i++) {
+
+                        if ($scope.advs[i].category === $scope.category.cat ) {
+
+                            catadv.push($scope.advs[i])
+                        }
+
+                    }
+                    $scope.boton=true;
+                    $scope.advs = catadv;
+                }
+
+
+                if(typeof  $scope.date2!=='undefined' && typeof $scope.category.cat!=='undefined') {
+                    console.log("entra3")
+                    catadv=[];
+                    for (i; i < $scope.advs.length; i++) {
+
+                        if ($scope.advs[i].date === $scope.date2 && $scope.advs[i].category === $scope.category.cat) {
+
+                            catadv.push($scope.advs[i])
+                        }
+
+                    }
+                    $scope.boton=true;
+                    $scope.advs = catadv;
+                }
+
                 return $scope.category.cat
             }
 
