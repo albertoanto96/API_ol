@@ -56,6 +56,7 @@
                             .ok('Ok!')
                     );
                 }else if(data.team==null){
+
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
@@ -96,6 +97,7 @@
                     category:$scope.category
                 };
                 if (data.name == null || data.telephone == null || data.color == null|| data.category==null) {
+
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
@@ -151,6 +153,7 @@
                     body:$scope.body
                 };
                 if (data.body == null || data.title == null) {
+
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)

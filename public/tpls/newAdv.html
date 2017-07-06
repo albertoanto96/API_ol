@@ -8,12 +8,11 @@
 <br>
 <div layout="row">
 
-
     <div flex ng-cloak class="md-block">
         <div ng-if="profil==='admin'">
             <md-input-container>
                 <label>Esport</label>
-                <md-select ng-model="sport" placeholder="Esport">
+                <md-select ng-model="sport.sp" placeholder="Esport">
                     <md-optgroup label="Esports">
                         <md-option ng-value="e.nom" ng-repeat="e in sports">{{e.nom}}</md-option>
                     </md-optgroup>
@@ -23,63 +22,63 @@
         <div ng-if="profil==='admin'">
             <md-input-container class="md-block">
                 <label>Link</label>
-                <input ng-model="link">
+                <input ng-model="link.li">
             </md-input-container>
         </div>
 
         <div ng-if="profil==='admin'">
             <md-input-container class="md-block">
                 <label>Punts del guanyador</label>
-                <input ng-model="points">
+                <input ng-model="points.p">
             </md-input-container>
         </div>
 
         <div ng-if="profil==='admin'">
             <md-input-container class="md-block">
                 <label>Punts del perdedor</label>
-                <input ng-model="points2">
+                <input ng-model="points2.p">
             </md-input-container>
         </div>
 
         <div ng-if="profil==='admin'">
-            <md-input-container ng-if="radioy==='false'">
+            <md-input-container ng-if="radioy.y==='false'">
                 <label>Ronda</label>
-                <md-select ng-model="round" placeholder="Ronda">
+                <md-select ng-model="round.r" placeholder="Ronda">
                     <md-optgroup label="Rondas">
                         <md-option ng-value="c.title" ng-repeat="c in rounds">{{c.title}}</md-option>
                     </md-optgroup>
                 </md-select>
             </md-input-container>
 
-            <md-input-container ng-if="radioy==='false'">
+            <md-input-container ng-if="radioy.y==='false'">
                 <label>Categoría</label>
-                <md-select ng-model="catego" placeholder="Categoría">
+                <md-select ng-model="category.cat" placeholder="Categoría">
                     <md-optgroup label="Categoria">
-                        <md-option ng-value="t.title" ng-repeat="t in classes" ng-click="change(t.title)">{{t.title}}</md-option>
+                        <md-option ng-value="t.title" ng-repeat="t in classes" >{{t.title}}</md-option>
                     </md-optgroup>
                 </md-select>
             </md-input-container>
 
-            <md-input-container ng-if="radioy==='false'">
+            <md-input-container ng-if="radioy.y==='false'">
                 <label>Equip 1</label>
-                <md-select ng-model="team1" placeholder="Equip 1">
-                    <md-optgroup label="Equip 1 Masculí" ng-if="category==='Masculí'">
+                <md-select ng-model="team.team1" placeholder="Equip 1">
+                    <md-optgroup label="Equip 1 Masculí" ng-if="category.cat==='Masculí'">
                         <md-option ng-value="e1.name" ng-repeat="e1 in masculine">{{e1.name}}</md-option>
                     </md-optgroup>
-                    <md-optgroup label="Equip 1 Femení" ng-if="category==='Femení'">
+                    <md-optgroup label="Equip 1 Femení" ng-if="category.cat==='Femení'">
                         <md-option ng-value="e3.name" ng-repeat="e3 in femenine">{{e3.name}}
                         </md-option>
                     </md-optgroup>
                 </md-select>
             </md-input-container>
 
-            <md-input-container ng-if="radioy==='false'">
+            <md-input-container ng-if="radioy.y==='false'">
                 <label>Equip 2</label>
-                <md-select ng-model="team2" placeholder="Equip 2">
-                    <md-optgroup label="Equip 2 Masculí" ng-if="category==='Masculí'">
+                <md-select ng-model="team.team2" placeholder="Equip 2">
+                    <md-optgroup label="Equip 2 Masculí" ng-if="category.cat==='Masculí'">
                         <md-option ng-value="e2.name" ng-repeat="e2 in masculine">{{e2.name}}</md-option>
                     </md-optgroup>
-                    <md-optgroup label="Equip 2 Femení" ng-if="category==='Femení'">
+                    <md-optgroup label="Equip 2 Femení" ng-if="category.cat==='Femení'">
                         <md-option ng-value="e4.name" ng-repeat="e4 in femenine">{{e4.name}}</md-option>
                     </md-optgroup>
                 </md-select>
@@ -87,18 +86,18 @@
         <div>
             <p>El event es global?</p>
             <label>
-                <input type="radio" ng-model="radioy" value="true">
+                <input type="radio" ng-model="radioy.y" value="true">
                 Si
             </label>
             <label>
-                <input type="radio" ng-model="radioy" value="false">
+                <input type="radio" ng-model="radioy.y" value="false">
                 No
             </label>
         </div>
         </div>
         <h3 ng-if="profil==='admin'">Lloc del event</h3>
         <div ng-if="profil==='admin'">
-            <input ng-model="searched" places-auto-complete size=80
+            <input ng-model="$parent.searched" places-auto-complete size=80
                    component-restrictions="{country:'es'}"/>
             <button type="button" class="btn btn-outline-primary" ng-click="searchLocation()">Anar a la localització</button>
             </button>
@@ -116,14 +115,14 @@
             <div class="form-group">
                 <label class="col-xs-3 control-label" ng-if="profil==='admin'">Data del event</label>
                 <div class="col-xs-5">
-                    <input type="text" ng-model="date" class="form-control" id="date" />
+                    <input type="text" ng-model="date.d" class="form-control" id="date" />
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-xs-3 control-label" ng-if="profil==='admin'">Hora del event</label>
                 <div class="col-xs-5">
-                    <input type="text" ng-model="time" class="form-control" id="time" />
+                    <input type="text" ng-model="time.t" class="form-control" id="time" />
                 </div>
             </div>
 

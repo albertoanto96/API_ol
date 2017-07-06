@@ -7,8 +7,13 @@
             $scope.profil = null;
             $scope.place="Begas, España";
             $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAU-CXgmB-8XZnXFwyq3gOdpKINaSRxW3k?libraries=places";
-            $scope.category = "";
-            $scope.catego="";
+            $scope.category = {};
+            $scope.sport={};
+            $scope.link={};
+            $scope.round={};
+            $scope.team={};
+            $scope.date={};
+            $scope.time={};
             $scope.totaladv = [];
             $scope.reladv = [];
             $scope.boton = false;
@@ -75,9 +80,9 @@
                 ];
             $scope.masculine=[];
             $scope.femenine=[];
-            $scope.points=0;
-            $scope.points2=0;
-            $scope.radioy="false";
+            $scope.points={p:0};
+            $scope.points2={p:0};
+            $scope.radioy={y:'false'};
             var geocoder = new google.maps.Geocoder();
 
             var getLocation = function (location) {
@@ -288,31 +293,29 @@
 
             };
             $scope.searchLocation=function () {
-                console.log($scope.catego)
+                console.log($scope.category)
                 if(($scope.searched!=undefined)) {
                     getLocation($scope.searched)
                     $scope.place = $scope.searched
                 }
             }
-            $scope.change=function (cat) {
-            $scope.category=cat;
-            };
+
             $scope.addEvent = function (ev) {
 
                var data = {
-                    title: $scope.sport+" ("+$scope.category+") : "+$scope.team1+" vs " +$scope.team2,
-                    sport: $scope.sport,
-                    link: $scope.link,
-                    round:$scope.round,
-                    category: $scope.category,
+                    title: $scope.sport.sp+" ("+$scope.category.cat+") : "+$scope.team.team1+" vs " +$scope.team.team2,
+                    sport: $scope.sport.sp,
+                    link: $scope.link.li,
+                    round:$scope.round.r,
+                    category: $scope.category.cat,
                     location: $scope.place,
-                    team1:$scope.team1,
-                    team2:$scope.team2,
-                    date:$scope.date,
-                    time:$scope.time,
-                    points:$scope.points,
-                    points2:$scope.points2,
-                   all:$scope.radioy
+                    team1:$scope.team.team1,
+                    team2:$scope.team.team2,
+                    date:$scope.date.d,
+                    time:$scope.time.t,
+                    points:$scope.points.p,
+                    points2:$scope.points2.p,
+                   all:$scope.radioy.y
                 };
                 if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='false')) {
                     $mdDialog.show(
@@ -323,6 +326,7 @@
                     );
                 }
                 else if ((data.sport == null || data.link == null || data.location == null|| data.date == null|| data.time == null)&&(data.all==='true')) {
+
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
