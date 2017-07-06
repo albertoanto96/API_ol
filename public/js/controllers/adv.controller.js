@@ -247,10 +247,10 @@
 
             $scope.categoryAdv = function (c) {
                 if(c!=undefined) {
-                    $scope.category = c.title
+                    $scope.category.cat = c.title
                 }
                 $scope.dateAdv()
-                return $scope.category
+                return $scope.category.cat
             }
             $scope.dateAdv = function () {
 
@@ -262,7 +262,7 @@
 
                 for (i; i < $scope.advs.length; i++) {
 
-                    if ($scope.advs[i].category == $scope.category) {
+                    if ($scope.advs[i].category == $scope.category.cat) {
                         catadv.push($scope.advs[i])
                     }
                 }
@@ -282,7 +282,7 @@
                 }
                 $scope.boton=true;
                 $scope.advs = catadv;
-                return $scope.category
+                return $scope.category.cat
             }
 
 
@@ -293,7 +293,6 @@
 
             };
             $scope.searchLocation=function () {
-                console.log($scope.category)
                 if(($scope.searched!=undefined)) {
                     getLocation($scope.searched)
                     $scope.place = $scope.searched
