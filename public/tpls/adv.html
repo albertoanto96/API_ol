@@ -37,7 +37,7 @@
                         <md-card-content ng-if="adv.round!=null">
                             <span class="md-subhead" >Ronda: {{adv.round}}</span>
                         </md-card-content>
-                        <md-card-content>
+                        <md-card-content ng-if="adv.team1!=null">
                             <span class="md-subhead">Punts guanyador : {{adv.points}}  Punts perdedor : {{adv.points2}}</span>
                         </md-card-content>
                         <md-card-content ng-if="adv.team1!=null">
