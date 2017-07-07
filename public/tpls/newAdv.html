@@ -25,22 +25,32 @@
                 <input ng-model="link.li">
             </md-input-container>
         </div>
-
-        <div ng-if="profil==='admin'">
+        <div>
+            <p>El event es global?</p>
+            <label>
+                <input type="radio" ng-model="radioy.y" value="true">
+                Si
+            </label>
+            <label>
+                <input type="radio" ng-model="radioy.y" value="false">
+                No
+            </label>
+        </div>
+        <div ng-if="profil==='admin' && radioy.y==='false'">
             <md-input-container class="md-block">
                 <label>Punts del guanyador</label>
                 <input ng-model="points.p">
             </md-input-container>
         </div>
 
-        <div ng-if="profil==='admin'">
+        <div ng-if="profil==='admin' && radioy.y==='false'">
             <md-input-container class="md-block">
                 <label>Punts del perdedor</label>
                 <input ng-model="points2.p">
             </md-input-container>
         </div>
 
-        <div ng-if="profil==='admin'">
+        <div ng-if="profil==='admin' ">
             <md-input-container ng-if="radioy.y==='false'">
                 <label>Ronda</label>
                 <md-select ng-model="round.r" placeholder="Ronda">
@@ -83,17 +93,7 @@
                     </md-optgroup>
                 </md-select>
             </md-input-container>
-        <div>
-            <p>El event es global?</p>
-            <label>
-                <input type="radio" ng-model="radioy.y" value="true">
-                Si
-            </label>
-            <label>
-                <input type="radio" ng-model="radioy.y" value="false">
-                No
-            </label>
-        </div>
+
         </div>
         <h3 ng-if="profil==='admin'">Lloc del event</h3>
         <div ng-if="profil==='admin'">
