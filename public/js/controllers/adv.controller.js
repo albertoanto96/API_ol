@@ -319,7 +319,7 @@
             $scope.addEvent = function (ev) {
 
                var data = {
-                    title: $scope.sport.sp+" ("+$scope.category.cat+") : "+$scope.team.team1+" vs " +$scope.team.team2,
+                    title: $scope.sport.sp+" ("+$scope.category.cat+") : "+$scope.team.team1+" vs " +$scope.team.team2 + $scope.round.r,
                     sport: $scope.sport.sp,
                     link: $scope.link.li,
                     round:$scope.round.r,
