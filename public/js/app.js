@@ -8,16 +8,16 @@ app.config(['$routeProvider', function ($routeProvider) {
     when('/', {
         templateUrl: 'tpls/advs.html',
         controller: 'advCtrl'
-    }).when('/Anuncios', {
+    }).when('/Events', {
         templateUrl: 'tpls/advs.html',
         controller: 'advCtrl'
     }).when('/Perfil', {
         templateUrl: 'tpls/profile.html',
         controller: 'userCtrl'
-    }).when('/Adv', {
+    }).when('/Event', {
         templateUrl: 'tpls/adv.html',
         controller: 'advCtrl'
-    }).when('/NewAdv', {
+    }).when('/NouEvent', {
         templateUrl: 'tpls/newAdv.html',
         controller: 'advCtrl'
     }).otherwise({redirectTo: '/Anuncios'})
@@ -51,7 +51,7 @@ app.controller('mainCtrl', ['$http', '$rootScope', '$scope', '$location', '$mdDi
                 localStorageService.set('userName',response.data[0].name)
                 $scope.currentNavItem = 'Advs';
                 $mdDialog.hide();
-                $location.path("/Anuncios");
+                $location.path("/Events");
                 location.reload();
             }
              else {

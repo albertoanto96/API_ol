@@ -184,7 +184,7 @@
                     advSRV.deleteadv(data, function (response) {
 
                     });
-                    $location.path("/Anuncios");
+                    $location.path("/Events");
                 });
 
             };
@@ -209,7 +209,7 @@
                     advSRV.winneradv(data, function (response) {
 
                     });
-                    $location.path("/Anuncios");
+                    $location.path("/Events");
                 });
 
             };
@@ -234,7 +234,7 @@
                     advSRV.winneradv(data, function (response) {
 
                     });
-                    $location.path("/Anuncios");
+                    $location.path("/Events");
                 });
 
             };
@@ -258,7 +258,6 @@
                 var i = 0;
 
                 if(typeof  $scope.date2!=='undefined' && typeof $scope.category.cat==='undefined') {
-                    console.log("entra1")
                     catadv=[];
                     for (i; i < $scope.advs.length; i++) {
 
@@ -272,7 +271,6 @@
                     $scope.advs = catadv;
                 }
                 if(typeof  $scope.date2==='undefined' && typeof $scope.category.cat!=='undefined') {
-                    console.log("entra2")
                     catadv=[];
                     for (i; i < $scope.advs.length; i++) {
 
@@ -288,7 +286,6 @@
 
 
                 if(typeof  $scope.date2!=='undefined' && typeof $scope.category.cat!=='undefined') {
-                    console.log("entra3")
                     catadv=[];
                     for (i; i < $scope.advs.length; i++) {
 
@@ -303,13 +300,13 @@
                 }
 
                 return $scope.category.cat
-            }
+            };
 
 
             $scope.getAdv = function (adv) {
                 localStorageService.add('adv', adv);
                 $rootScope.adv = localStorageService.get('adv');
-                $location.path("/Adv");
+                $location.path("/Event");
 
             };
             $scope.searchLocation=function () {
@@ -353,7 +350,7 @@
                             .ok('Ok!')
                     );
                 }
-                else if((data.team1===data.team2)&&(data.all==='No')){
+                else if((data.team1===data.team2)&&(data.all==='false')){
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
@@ -385,7 +382,7 @@
                                         .title('Event creat correctament')
                                         .ok('Ok!')
                                 );
-                                $location.path("/Anuncios");
+                                $location.path("/Events");
                             }
                         })
                     });
@@ -409,7 +406,7 @@
                             .ok('Ok!')
                     );
                     $scope.currentNavItem = 'Anuncios';
-                    $location.path("/Anuncios");
+                    $location.path("/Events");
                 });
             }
 

@@ -211,7 +211,7 @@
 
                 localStorageService.add('adv', adv);
                 $rootScope.adv = localStorageService.get('adv');
-                $location.path("/Adv");
+                $location.path("/Event");
 
             };
 
@@ -222,14 +222,14 @@
                     userSRV.search($scope.search.word, function (response) {
                         localStorageService.add('advs', response);
                         location.reload();
-                        $location.path("/Anuncios");
+                        $location.path("/Events");
                     });
 
 
                 } else {
                     localStorageService.add('advs', null);
                     location.reload();
-                    $location.path("/Anuncios");
+                    $location.path("/Events");
                 }
             };
 
