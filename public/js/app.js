@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('mainApp',
-    ['ngRoute', 'ngMaterial', 'ngFileUpload', 'LocalStorageModule','btford.socket-io','luegg.directives','ngMap'])
+    ['ngRoute', 'ngMaterial', 'ngFileUpload', 'LocalStorageModule','ngMap'])
 
 app.config(['$routeProvider', function ($routeProvider) {
 

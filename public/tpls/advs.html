@@ -30,12 +30,10 @@
                     <img src="../img/advs/{{adv.sport}}.png" height="300" width="320">
                     <div class="txtcontent" >
                         <div class="simpletxt">
-                            <h3>{{adv.sport}}   {{adv.category}}    {{adv.round}}</h3>
-                            <p ng-if="adv.team1!=null">{{adv.team1}} vs  {{adv.team2}}</p>
-                            <p ng-if="adv.winner!=null ">Guanyador: {{adv.winner}}</p>
+                            <h3>{{adv.sport}} {{adv.category}} {{adv.round}}</h3>
+                            <p ng-if="adv.team1!=null">{{adv.team1}} VS  {{adv.team2}}</p>
+                            <!--<p ng-if="adv.winner!=null ">Guanyador: {{adv.winner}}</p>-->
                             <p>{{adv.date}}   {{adv.time}}</p>
-                            <p>{{adv.location}} </p>
-                            <p>PG : {{adv.points}}  PP : {{adv.points2}} </p>
                             <button ng-click="getAdv(adv)">Detall</button><br>
                         </div>
                     </div>

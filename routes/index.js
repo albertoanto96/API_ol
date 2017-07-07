@@ -1,39 +1,18 @@
-var express = require('express'),
-    IMGR = require('imgr').IMGR;
+var express = require('express')
 var bodyParser = require( 'body-parser' );
 var app = express();
 var username = "";
 app.use( bodyParser.urlencoded({ extended: true }) );
 var mongoose = require('mongoose');
-var fs = require('fs');
 var multer = require('multer');
 var Hash = require('jshashes');
 var cors = require('cors');
 var session = require('express-session')
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
 module.exports=app;
 var path = require('path');
 
 var Schema = mongoose.Schema;
-var storage = multer.diskStorage({
-    destination: function (req, file, callback) {
-        callback(null,path.resolve(__dirname,'../public/img/profiles'));
-    },
-    filename: function (req, file, callback) {
-            callback(null, req.body.id + ".png");
 
-    }
-});
-var storageadv = multer.diskStorage({
-
-    destination: function (req, file, callback) {
-        callback(null,path.resolve(__dirname,'../public/img/advs'));
-    },
-    filename: function (req, file, callback) {
-            callback(null, req.body.name + ".png");
-    }
-});
 
 mongoose.connect("mongodb://localhost:27017/olimpiades", function (err) {
     if (!err) {
@@ -56,24 +35,6 @@ res.header('Access-Control-Allow-Headers', "Content-Type, Authorization, Content
 res.header('Access-Control-Allow-Credentials',"true")
 next();
 });
-var upload = multer({storage: storage}).single('file');
-var uploadadv = multer({storage: storageadv}).single('file');
-var imgr = new IMGR({debug:false});
-
-//Se ha de instalar graphicsmagick si se quiere probar desde un ordenador que no sea producción
-//Para instalarlo: http://www.graphicsmagick.org/README.html
-
-    imgr.serve(path.resolve(__dirname,'../public/img/advs'))
-    .namespace('/images')
-    .urlRewrite('/:path/:size/:file.:ext')
-    .whitelist([ '','200x300', '100x100','150x','389x400'])
-    .using(app);
-
-    imgr.serve(path.resolve(__dirname,'../public/img/profiles'))
-    .namespace('/imagesprof')
-    .urlRewrite('/:path/:size/:file.:ext')
-    .whitelist([ '','200x300', '100x100','150x','389x400'])
-    .using(app);
 
 app.post('/logout',function (req,res) {
     username="";
