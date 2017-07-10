@@ -356,7 +356,7 @@ app.get('*', function(req, res){
     res.sendFile(path.join(__dirname, '../public/tpls', 'error.html'));
 });
 
-app.listen(3500, function () {
-    console.log('App listening on port 3500!!')
+app.listen(80, function () {
+    console.log('App listening on port 80!!')
 });
 
