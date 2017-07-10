@@ -193,7 +193,7 @@
 
                 var adv= $rootScope.adv
                 var confirm = $mdDialog.confirm()
-                    .title('Vols establi a '+ adv.team2 +' como guanyadors?')
+                    .title('Vols establir a '+ adv.team2 +' como guanyadors?')
                     .targetEvent(ev)
                     .ok('Si!')
                     .cancel('No');

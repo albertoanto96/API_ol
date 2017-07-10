@@ -155,8 +155,8 @@
             }
             $scope.addNew = function (ev) {
                 var data = {
-                    title:$scope.title,
-                    body:$scope.body
+                    title:$scope.title.t,
+                    body:$scope.body.b
                 };
                 if (data.body == null || data.title == null) {
 
