@@ -13,7 +13,15 @@
             $scope.masculine=[];
             $scope.femenine=[];
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
-
+            $scope.title={};
+            $scope.body={};
+            $scope.telephone={};
+            $scope.captain={};
+            $scope.name={};
+            $scope.color={};
+            $scope.category={};
+            $scope.team={};
+            $scope.dpoints={};
 
             angular.element(document).ready(function () {
 
@@ -88,12 +96,13 @@
 
             $scope.addTeam = function (ev) {
                 var data = {
-                    name:$scope.name,
-                    telephone:$scope.telephone,
-                    color:$scope.color,
-                    category:$scope.category
+                    name:$scope.name.n,
+                    telephone:$scope.telephone.t,
+                    color:$scope.color.c,
+                    captain:$scope.captain.c,
+                    category:$scope.category.c
                 };
-                if (data.name == null || data.telephone == null || data.color == null|| data.category==null) {
+                if (data.name == null || data.telephone == null || data.color == null|| data.category==null ||data.captain==null) {
 
                     $mdDialog.show(
                         $mdDialog.alert()

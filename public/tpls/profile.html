@@ -9,31 +9,35 @@
 <div ng-cloak>
     <h3> Afegir equip</h3>
     <div layout="row">
-
-
         <div>
             <md-input-container class="md-block">
-                <label>Teléfon</label>
-                <input ng-model="telephone">
+                <label>Nom</label>
+                <input ng-model="name.n">
             </md-input-container>
         </div>
         <div>
             <md-input-container class="md-block">
-                <label>Nom</label>
-                <input ng-model="name">
+                <label>Teléfon</label>
+                <input ng-model="telephone.t">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="md-block">
+                <label>Capità </label>
+                <input ng-model="captain.c">
             </md-input-container>
         </div>
 
         <div>
             <md-input-container class="md-block">
                 <label>Color</label>
-                <input ng-model="color">
+                <input ng-model="color.c">
             </md-input-container>
         </div>
 
         <md-input-container>
             <label>Categoría</label>
-            <md-select ng-model="category" placeholder="Categoría">
+            <md-select ng-model="category.c" placeholder="Categoría">
                 <md-optgroup label="Categoria">
                     <md-option ng-value="t.title" ng-repeat="t in classes">{{t.title}}</md-option>
                 </md-optgroup>
@@ -51,14 +55,14 @@
     <div>
         <md-input-container class="md-block">
             <label>Títol de la notícia</label>
-            <input ng-model="title">
+            <input ng-model="title.t">
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="md-block">
             <label>Cos de la notícia</label>
-            <input ng-model="body">
+            <input ng-model="body.b">
         </md-input-container>
     </div>
 
@@ -92,7 +96,7 @@
 
         <md-input-container class="md-block">
             <label>Punts</label>
-            <input ng-model="dpoints">
+            <input ng-model="dpoints.d">
         </md-input-container>
 
         <div style="text-align: center">
@@ -111,20 +115,24 @@
         <md-list-item class="md-3-line" ng-repeat="mas in masculine">
             <div class="md-list-item-text" layout="column">
                 <h2>{{ mas.name }}</h2>
+                <h3>{{mas.captain}}</h3>
                 <h3>{{ mas.telephone }}</h3>
                 <h3>{{ mas.category }}</h3>
                 <h3>{{ mas.color }}</h3>
                 <h3>{{ mas.points }}</h3>
+
             </div>
         </md-list-item>
 
         <md-list-item class="md-3-line" ng-repeat="fem in femenine">
             <div class="md-list-item-text" layout="column">
                 <h2>{{ fem.name }}</h2>
+                <h3>{{fem.captain}}</h3>
                 <h3>{{ fem.telephone }}</h3>
                 <h3>{{ fem.category }}</h3>
                 <h3>{{ fem.color }}</h3>
                 <h3>{{ fem.points }}</h3>
+
             </div>
         </md-list-item>
     </div>

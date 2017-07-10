@@ -8,7 +8,8 @@ var teams = mongoose.Schema({
     name: String,
     category:String,
     color: String,
-    points:String
+    points:String,
+    captain:String
 });
 var Team = mongoose.model('teams', teams);
 module.exports = Team;

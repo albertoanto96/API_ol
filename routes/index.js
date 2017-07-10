@@ -173,7 +173,7 @@ app.get('/getTeams', function (req, res) {
     var listTeam = [];
     Team.find(function (err, us) {
         for (var i = 0; i < us.length; i++) {
-            listTeam.push({name: us[i].name, category: us[i].category,color: us[i].color,points: us[i].points,telephone: us[i].telephone});
+            listTeam.push({name: us[i].name, category: us[i].category,color: us[i].color,points: us[i].points,telephone: us[i].telephone, captain:us[i].captain});
         }
         res.send(listTeam);
     });
@@ -232,7 +232,7 @@ app.get('/search/:word', function (req, res) {
 });
 
 app.post('/addTeam', function (req, res) {
-
+        console.log(req.body)
     Team.find({name: req.body.name}).then(function (response) {
 
         if (response[0] != undefined) {
@@ -243,6 +243,7 @@ app.post('/addTeam', function (req, res) {
                 name:req.body.name,
                 telephone:req.body.telephone,
                 color:req.body.color,
+                captain:req.body.captain,
                 category:req.body.category,
                 points:0
             });
