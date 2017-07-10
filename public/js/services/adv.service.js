@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     var app = angular.module('mainApp');
-    app.service('advSRV', ['$http','Upload',function ($http,Upload) {
+    app.service('advSRV', ['$http',function ($http) {
 
 
         this.getAdvs = function (callback) { //cambiar
@@ -10,17 +10,6 @@
             });
 
         };
-        this.upload=function (data,callback) {
-            Upload.upload({
-                url: 'uploadadv/',
-                data: data
-            }).then(function (resp) {
-            }, function (resp) {
-            }, function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            });
-        };
-
 
         this.deleteadv = function (data, callback) {
 
