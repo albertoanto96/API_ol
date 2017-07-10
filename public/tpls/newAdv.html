@@ -36,20 +36,6 @@
                 No
             </label>
         </div>
-        <div ng-if="profil==='admin' && radioy.y==='false'">
-            <md-input-container class="md-block">
-                <label>Punts del guanyador</label>
-                <input ng-model="points.p">
-            </md-input-container>
-        </div>
-
-        <div ng-if="profil==='admin' && radioy.y==='false'">
-            <md-input-container class="md-block">
-                <label>Punts del perdedor</label>
-                <input ng-model="points2.p">
-            </md-input-container>
-        </div>
-
         <div ng-if="profil==='admin' ">
             <md-input-container ng-if="radioy.y==='false'">
                 <label>Ronda</label>
@@ -97,22 +83,17 @@
         </div>
         <h3 ng-if="profil==='admin'">Lloc del event</h3>
         <div ng-if="profil==='admin'">
-            <input ng-model="$parent.searched" places-auto-complete size=80
-                   component-restrictions="{country:'es'}"/>
-            <button type="button" class="btn btn-outline-primary" ng-click="searchLocation()">Anar a la localització</button>
-            </button>
-            <p>{{place}}</p>
-            <div ng-class="reload">
-                <ng-map id="map" zoom="16" center="{{place}}">
-                    <marker position="{{place}}"/>
-                    <control name="overviewMap" opened="true"/>
-                </ng-map>
-            </div>
+            <md-select ng-model="place.p" placeholder="Lloc">
+                <md-optgroup label="Llocs">
+                    <md-option ng-value="l.title" ng-repeat="l in places">{{l.title}}</md-option>
+                </md-optgroup>
+            </md-select>
         </div>
         <br><br>
 
 
-            <div class="form-group">
+
+        <div class="form-group">
                 <label class="col-xs-3 control-label" ng-if="profil==='admin'">Data del event</label>
                 <div class="col-xs-5">
                     <input type="text" ng-model="date.d" class="form-control" id="date" />

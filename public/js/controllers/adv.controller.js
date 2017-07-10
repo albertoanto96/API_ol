@@ -5,8 +5,7 @@
         function (advSRV, $scope, $location, $rootScope, $mdDialog, $mdToast, localStorageService, NgMap) {
 
             $scope.profil = null;
-            $scope.place="Begas, España";
-            $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAU-CXgmB-8XZnXFwyq3gOdpKINaSRxW3k?libraries=places";
+            $scope.place={};
             $scope.category = {};
             $scope.sport={};
             $scope.link={};
@@ -20,6 +19,7 @@
             $scope.advs = [];
             $scope.user = localStorageService.get('userID');
             $scope.currentNavItem = 'Anuncios';
+            $scope.places = [{"title": "Club de Begues"}, {"title": "Camp Municipal"},{"title":"Camí de Can Sadurní"}];
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
             $scope.rounds = [{"title": "vuitens"}, {"title": "cuarts"}, {"title": "semifinal"}, {"title": "final"},{"title": "repesca"}];
             $scope.sports=[{nom:"Futbol-7"}, {nom:"Futbol-Sala"}, {nom:"Waterpolo"},
@@ -324,13 +324,11 @@
                     link: $scope.link.li,
                     round:$scope.round.r,
                     category: $scope.category.cat,
-                    location: $scope.place,
+                    location: $scope.place.p,
                     team1:$scope.team.team1,
                     team2:$scope.team.team2,
                     date:$scope.date.d,
                     time:$scope.time.t,
-                    points:$scope.points.p,
-                    points2:$scope.points2.p,
                    all:$scope.radioy.y
                 };
                if(data.all==='true'){
