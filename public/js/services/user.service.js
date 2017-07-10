@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     var app = angular.module('mainApp');
-    app.service('userSRV', ['$http','Upload','localStorageService',function ($http,Upload,localStorageService) {
+    app.service('userSRV', ['$http','localStorageService',function ($http,localStorageService) {
 
 
         this.logoutWeb=function (callback) {
