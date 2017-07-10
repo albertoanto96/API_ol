@@ -304,7 +304,6 @@
                if(data.all==='true'){
                    data.title=data.sport +", EVENT GLOBAL";
                }
-               console.log(data)
                 if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null)&&(data.all==='false')) {
                     $mdDialog.show(
                         $mdDialog.alert()
