@@ -47,9 +47,9 @@
 
             $scope.addPoints=function (ev) {
 
-                var points=Number($scope.dpoints)
+                var points=Number($scope.dpoints.d)
                 var data = {
-                    points: $scope.dpoints,
+                    points: $scope.dpoints.d,
                     team: $scope.team1
                 }
 

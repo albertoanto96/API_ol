@@ -232,7 +232,6 @@ app.get('/search/:word', function (req, res) {
 });
 
 app.post('/addTeam', function (req, res) {
-        console.log(req.body)
     Team.find({name: req.body.name}).then(function (response) {
 
         if (response[0] != undefined) {

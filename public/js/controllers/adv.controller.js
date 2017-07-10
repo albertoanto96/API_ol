@@ -304,7 +304,8 @@
                if(data.all==='true'){
                    data.title=data.sport +", EVENT GLOBAL";
                }
-                if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null||data.points==null||data.points2==null)&&(data.all==='false')) {
+               console.log(data)
+                if ((data.sport == null || data.link == null || data.round == null|| data.category == null|| data.location == null|| data.team1 == null|| data.team2 == null|| data.date == null|| data.time == null)&&(data.all==='false')) {
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
