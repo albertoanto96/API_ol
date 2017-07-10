@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('mainApp',
-    ['ngRoute', 'ngMaterial', 'ngFileUpload', 'LocalStorageModule','ngMap'])
+    ['ngRoute', 'ngMaterial', 'LocalStorageModule','ngMap'])
 
 app.config(['$routeProvider', function ($routeProvider) {
 
