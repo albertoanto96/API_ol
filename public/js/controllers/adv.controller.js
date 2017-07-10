@@ -18,7 +18,7 @@
             $scope.boton = false;
             $scope.advs = [];
             $scope.user = localStorageService.get('userID');
-            $scope.currentNavItem = 'Anuncios';
+            $scope.currentNavItem = 'Advs';
             $scope.places = [{"title": "Club de Begues"}, {"title": "Camp Municipal"},{"title":"Camí de Can Sadurní"}];
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
             $scope.rounds = [{"title": "vuitens"}, {"title": "cuarts"}, {"title": "semifinal"}, {"title": "final"},{"title": "repesca"}];
@@ -83,30 +83,6 @@
             $scope.points={p:0};
             $scope.points2={p:0};
             $scope.radioy={y:'false'};
-            var geocoder = new google.maps.Geocoder();
-
-            var getLocation = function (location) {
-
-                var address = location;
-                geocoder.geocode({'address': address}, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        var latitude = results[0].geometry.location.lat();
-                        var longitude = results[0].geometry.location.lng();
-                        $scope.location = latitude + "," + longitude
-
-                    }
-                    else {
-
-                    }
-                });
-            };
-
-
-            if (localStorageService.get('adv') != null) {
-
-                getLocation(localStorageService.get('adv').location)
-            }
-
             angular.element(document).ready(function () {
                 $scope.profil=localStorageService.get('userName');
                 $('#date').pickadate({
@@ -309,12 +285,6 @@
                 $location.path("/Event");
 
             };
-            $scope.searchLocation=function () {
-                if(($scope.searched!=undefined)) {
-                    getLocation($scope.searched)
-                    $scope.place = $scope.searched
-                }
-            }
 
             $scope.addEvent = function (ev) {
 

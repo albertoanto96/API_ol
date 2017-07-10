@@ -1,21 +1,18 @@
 (function() {
     'use strict';
     var app = angular.module('mainApp');
-    app.controller('userCtrl',['userSRV','$scope', '$location', '$rootScope', '$mdDialog', '$mdToast', 'localStorageService','$window','NgMap',
-        function (userSRV,$scope, $location, $rootScope, $mdDialog, $mdToast, localStorageService, $window, NgMap) {
+    app.controller('userCtrl',['userSRV','$scope', '$location', '$rootScope', '$mdDialog', '$mdToast', 'localStorageService','$window',
+        function (userSRV,$scope, $location, $rootScope, $mdDialog, $mdToast, localStorageService, $window) {
 
             $scope.profile = null;
             $scope.users = [];
             $scope.advs = [];
             $scope.useradvs = [];
             $scope.currentNavItem = 'Perfil';
-            $scope.location = "";
-            $scope.latlng = "";
             $scope.viewteam=false;
             $scope.masculine=[];
             $scope.femenine=[];
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
-            var geocoder = new google.maps.Geocoder();
 
 
             angular.element(document).ready(function () {
