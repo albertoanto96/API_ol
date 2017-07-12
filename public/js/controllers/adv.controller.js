@@ -286,6 +286,20 @@
 
             };
 
+            $scope.placechange=function () {
+
+                if($scope.place.p==="Club de Begues"){
+                    console.log("yes")
+                    $scope.link.li="https://www.google.es/maps/place/Club+de+Begues/@41.333207,1.9245813,17z/data=!3m1!4b1!4m5!3m4!1s0x12a483eda6130edd:0xd5c73903c537394b!8m2!3d41.333207!4d1.92677"
+                }
+                if($scope.place.p==="Camp Municipal"){
+                    $scope.link.li="https://www.google.es/maps/place/41%C2%B020'11.6%22N+1%C2%B055'12.3%22E/@41.336546,1.919303,304m/data=!3m2!1e3!4b1!4m5!3m4!1s0x0:0x0!8m2!3d41.336546!4d1.920084"
+                }
+                if($scope.place.p==="Camí de Can Sadurní"){
+                    $scope.link.li="https://www.google.es/maps/place/41%C2%B020'24.6%22N+1%C2%B055'00.8%22E/@41.340175,1.9163428,213m/data=!3m2!1e3!4b1!4m5!3m4!1s0x0:0x0!8m2!3d41.340175!4d1.91689"
+                }
+            };
+
             $scope.addEvent = function (ev) {
 
                var data = {
