@@ -289,7 +289,6 @@
             $scope.placechange=function () {
 
                 if($scope.place.p==="Club de Begues"){
-                    console.log("yes")
                     $scope.link.li="https://www.google.es/maps/place/Club+de+Begues/@41.333207,1.9245813,17z/data=!3m1!4b1!4m5!3m4!1s0x12a483eda6130edd:0xd5c73903c537394b!8m2!3d41.333207!4d1.92677"
                 }
                 if($scope.place.p==="Camp Municipal"){
