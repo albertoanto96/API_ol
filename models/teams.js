@@ -8,7 +8,7 @@ var teams = mongoose.Schema({
     name: String,
     category:String,
     color: String,
-    points:String,
+    points:Number,
     captain:String
 });
 var Team = mongoose.model('teams', teams);
