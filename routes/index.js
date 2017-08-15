@@ -276,7 +276,7 @@ app.post('/addNew', function (req, res) {
 app.post('/addEvent', function (req, res) {
 
     Event.find({title: req.body.title}).then(function (response) {
-        else {
+
             var a = new Event({
                 title: req.body.title ,
                 sport: req.body.sport,
@@ -295,7 +295,7 @@ app.post('/addEvent', function (req, res) {
             a.save().then(function () {
             });
             res.send("200");
-        }
+
     });
 });
 app.get('/events',function (req, res) {
