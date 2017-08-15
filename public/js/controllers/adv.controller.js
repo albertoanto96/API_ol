@@ -19,7 +19,7 @@
             $scope.advs = [];
             $scope.user = localStorageService.get('userID');
             $scope.currentNavItem = 'Advs';
-            $scope.places = [{"title": "Club de Begues"}, {"title": "Camp Municipal"},{"title":"Camí de Can Sadurní"}];
+            $scope.places = [{"title": "Club de Begues"}, {"title": "Camp Municipal"},{"title":"Camí de Can Sadurní"},{"title":"Altre"}];
             $scope.classes = [{"title": "Masculí"}, {"title": "Femení"}];
             $scope.rounds = [{"title": "vuitens"}, {"title": "cuarts"}, {"title": "semifinal"}, {"title": "final"},{"title": "repesca"}];
             $scope.sports=[{nom:"Futbol-7"}, {nom:"Futbol-Sala"}, {nom:"Waterpolo"},
