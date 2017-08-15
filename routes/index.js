@@ -276,9 +276,7 @@ app.post('/addNew', function (req, res) {
 app.post('/addEvent', function (req, res) {
 
     Event.find({title: req.body.title}).then(function (response) {
-        if (response[0] != undefined) {
-            res.send("500");
-        } else {
+        else {
             var a = new Event({
                 title: req.body.title ,
                 sport: req.body.sport,
